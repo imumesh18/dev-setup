@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Exit on error
 set -e
 
 # Install dependency for gitkraken
