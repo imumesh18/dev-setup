@@ -7,7 +7,7 @@ services:
 
 script:
 # TODO modify this line to execute the test
- - docker run --rm -it --name df-shellcheck -v $(pwd):/mnt:ro --workdir /mnt koalaman/shellcheck ./test.sh
+ - docker run --rm -it --name df-shellcheck -v $(pwd):/usr/src:ro --workdir /usr/src koalaman/shellcheck-alpine ./test.sh
 
 # matrix:
 #   fast_finish: true
