@@ -3,6 +3,9 @@
 # Exit on error
 set -e
 
+# Exit on error in any of pipe commands
+set -o pipefail
+
 sudo -v
 
 # Changes the text color to Light-Orange.

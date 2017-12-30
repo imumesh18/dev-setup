@@ -38,12 +38,12 @@ rm -f gitkraken-amd64.deb
 echo -n "Verifying Gitkraken installation... "
 echo
 GITKRAKEN_CHECK="$(gitkraken -v 1>&1)"
-if [[ "$GITKRAKEN_CHECK" == *"XNode started time"* ]]; then
+if [[ "$GITKRAKEN_CHECK" == *"Node started time"* ]]; then
    echo -e "\\033[0;32mOK"
    echo
    echo "Gitkraken is successfully installed!"
    echo
-   atom -v
+   gitkraken -v
    echo -e "\\033[0m"
    exit 0
 else

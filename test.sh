@@ -3,6 +3,7 @@
 # Exit on error
 set -e
 
+# Exit on error in any of pipe commands
 set -o pipefail
 
 ERRORS=()

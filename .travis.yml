@@ -9,6 +9,7 @@ before_install:
   - docker pull koalaman/shellcheck
 
 script:
+# TODO modify this line to execute the test
  - docker run -v $(pwd):/scripts koalaman/shellcheck /scripts/test.sh
 
 matrix:
