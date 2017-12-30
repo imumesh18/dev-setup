@@ -3,6 +3,9 @@
 # Exit on error
 set -e
 
+# Exit on error in any of pipe commands
+set -o pipefail
+
 sudo -v
 
 # Declare Tmux version
@@ -31,10 +34,14 @@ echo -e "\\033[1;92m\\033[0m"
 # Remove tmux folder if it already exists
 rm -fr /tmp/tmux-${TMUX_VERSION}
 
-# TODO Replace wget with curl
 # Download the latest release from github
-cd ~
-wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz
+cd "$HOME"
+
+# Checks if the tmux tarball already exists or not
+if ! [ -f tmux-${TMUX_VERSION}.tar.gz ]; then
+    # TODO Replace wget with curl
+    wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz
+fi
 #curl -SL https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz | tar xzv
 
 # Extract the downloaded tmux tarball
@@ -44,26 +51,26 @@ tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/
 cd /tmp/tmux-${TMUX_VERSION}
 
 # Build tmux from release
-./configure && make
+./configure && make >/dev/null
 
 # Install tmux from release
-sudo make install
+sudo make install >/dev/null
 
 # Clean up
 echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
-cd -
+cd "$HOME"
 rm -fr /tmp/tmux-${TMUX_VERSION}
 
 # Verify and exit installation
 echo -n "Verifying Tmux installation... "
 echo
-GITKRAKEN_CHECK="$(tmux -V 1>&1)"
-if [[ "$GITKRAKEN_CHECK" == *"tmux"* ]]; then
+TMUX_CHECK="$(tmux -V 1>&1)"
+if [[ "$TMUX_CHECK" == *"tmux"* ]]; then
    echo -e "\\033[0;32mOK"
    echo
    echo "Tmux is successfully installed!"
    echo
-   atom -v
+   tmux -V
    echo -e "\\033[0m"
    exit 0
 else
