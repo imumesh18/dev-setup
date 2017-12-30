@@ -1,8 +1,13 @@
+sudo: required
+dist: trusty
 language: bash
-addons:
-  apt:
-    sources:
-    - debian-sid    # Grab ShellCheck from the Debian repo
-    packages:
-    - shellcheck
-    
+
+before_install:
+    - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
+    - sudo apt-get -qq update
+    - sudo apt-get -t trusty-backports install shellcheck
+    - sudo pip install bashate
+
+script:
+- shellcheck *.sh
+- bashate *.sh
