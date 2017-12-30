@@ -5,4 +5,4 @@ So I thought let's go bash way.
 
 ## Contribution
 
-As this is in initial phase of the development. I know, I am not perfect so please give your feedback in the form of creating issues and if you find something wrong please do create an issue. Contributions are most welcomed. Please make sure you test and validate before creating your pr. I will make sure to reply your PR within 12hrs.
+As this is in initial phase of the development. I know, I am not perfect so please give your feedback in the form of creating issues and if you find something wrong please do create an issue. Contributions are most welcomed. Please make sure you test and validate(use [shellcheck](https://github.com/koalaman/shellcheck)) before creating your pr. I will make sure to reply your PR within 12hrs.
