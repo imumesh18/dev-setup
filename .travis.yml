@@ -1,13 +1,17 @@
-sudo: required
-dist: trusty
 language: bash
 
-before_install:
-    - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
-    - sudo apt-get -qq update
-    - sudo apt-get -t trusty-backports install shellcheck
-    - sudo pip install bashate
+# Use container-based infrastructure for quicker build start-up
+sudo: false
+
+addons:
+  apt:
+    sources:
+    - debian-sid    # Grab shellcheck from the Debian repo (o_O)
+    packages:
+    - shellcheck
 
 script:
-- shellcheck *.sh
-- bashate *.sh
+ - bash -c 'shopt -s globstar; shellcheck **/*.{sh,bash}'
+
+matrix:
+  fast_finish: true
