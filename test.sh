@@ -6,7 +6,7 @@ set -o pipefail
 
 ERRORS=()
 
-# find all executables and run `shellcheck`
+# Run shellcheck on all the script
 for f in $(find . -type f -name "*.sh" -not -name "setup.sh" | sort -u); do
 	if file "$f" | grep --quiet shell; then
 		{
