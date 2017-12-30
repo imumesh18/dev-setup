@@ -9,7 +9,7 @@ sudo -v
 echo -e "\\033[1;92m**Installing dependencies for Gitkraken**\\033[1;92m\\033[0m"
 sudo apt install libgnome-keyring-dev libcurl3
 
-# Changes the text color to Light-Green.
+# Changes the text color to Teal.
 echo -e "\\033[1;38;5;23m"
 
 cat << "EOF"
@@ -30,7 +30,8 @@ wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
 # Installs gitkraken
 sudo dpkg -i gitkraken-amd64.deb
 
-# Removes gitkraken .deb package from machine
+# Clean up
+echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
 rm -f gitkraken-amd64.deb
 
 # Verify and exit installation
