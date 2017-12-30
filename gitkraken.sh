@@ -27,7 +27,7 @@ echo -e "\\033[1;92m\\033[0m"
 wget https://release.gitkraken.com/linux/gitkraken-amd64.deb 
 
 # Installs gitkraken
-dpkg -i gitkraken-amd64.deb
+sudo dpkg -i gitkraken-amd64.deb
 
 # Removes gitkraken .deb package from machine
 rm -f gitkraken-amd64.deb
