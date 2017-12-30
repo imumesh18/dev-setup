@@ -1,22 +1,22 @@
-# sudo: required
-#
-# language: bash
-#
-# services:
-#   - docker
-#
-# script:
-# # TODO modify this line to execute the test
-#  - docker run --rm -it --name df-shellcheck -v $(pwd):/usr/src:ro --workdir /usr/src r.j3ss.co/shellcheck ./test.sh
-#
+sudo: required
+
+language: bash
+
+services:
+  - docker
+
+script:
+# TODO modify this line to execute the test
+ - docker run --rm -it --name df-shellcheck -v $(pwd):/usr/src:ro --workdir /usr/src koalaman/shellcheck ./test.sh
+
 # matrix:
 #   fast_finish: true
-language: bash
-addons:
-  apt:
-    sources:
-    - debian-sid    # Grab ShellCheck from the Debian repo
-    packages:
-    - shellcheck
-script:
-  - ./test.sh
+# language: bash
+# addons:
+#   apt:
+#     sources:
+#     - debian-sid    # Grab ShellCheck from the Debian repo
+#     packages:
+#     - shellcheck
+# script:
+#   - ./test.sh
