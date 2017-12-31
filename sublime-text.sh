@@ -24,10 +24,10 @@ EOF
 echo -e "\\033[0m"
 
 # Imports Sublime text gpg key 
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+curl -sSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
 # Adds the Sublime text apt PPA 
-ech "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 # Update packages and Installs Sublime text latest version
 sudo apt update

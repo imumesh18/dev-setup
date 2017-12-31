@@ -9,7 +9,7 @@ set -o pipefail
 sudo -v
 
 # Changes the text color to Light-Blue.
-echo -e "\\033[1;94m"
+echo -e "\\033[1;38;5;25m"
 
 cat << "EOF"
  ___           _        _ _ _              __     ______     ____          _      
@@ -24,7 +24,7 @@ EOF
 echo -e "\\033[0m"
 
 # Imports  Visual Studio Code gpg key
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 
 # Adds the Visual Studio Code apt PPA
