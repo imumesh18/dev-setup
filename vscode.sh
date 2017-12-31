@@ -35,7 +35,7 @@ sudo apt-get update
 sudo apt-get install -y code
 
 # Verify and exit installation
-echo -n "Verifying Visual Studio Code installation... "
+echo "Verifying Visual Studio Code installation... "
 echo
 CODE_CHECK="$(code -v 3>&1)"
 if [[ "$CODE_CHECK" == *"x64"* ]]; then

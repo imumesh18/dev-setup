@@ -57,7 +57,7 @@ echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
 rm -fr /tmp/tmux-${TMUX_VERSION}
 
 # Verify and exit installation
-echo -n "Verifying Tmux installation... "
+echo "Verifying Tmux installation... "
 echo
 TMUX_CHECK="$(tmux -V 1>&1)"
 if [[ "$TMUX_CHECK" == *"tmux"* ]]; then

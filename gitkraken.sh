@@ -36,7 +36,7 @@ echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
 rm -rf /tmp/gitkraken-amd64.deb
 
 # Verify and exit installation
-echo -n "Verifying Gitkraken installation... "
+echo "Verifying Gitkraken installation... "
 echo
 GITKRAKEN_CHECK="$(gitkraken -v 1>&1)"
 if [[ "$GITKRAKEN_CHECK" == *"Node started time"* ]]; then

@@ -32,7 +32,7 @@ sudo apt-get update
 sudo apt-get -y install oracle-java8-installer
 
 # Verify and exit installation
-echo -n "Verifying Java installation... "
+echo "Verifying Java installation... "
 echo
 JAVA_CHECK="$(java -version 2>&1)"
 if [[ "$JAVA_CHECK" == *"Java(TM) SE Runtime Environment"* ]]; then

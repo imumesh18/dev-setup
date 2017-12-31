@@ -31,7 +31,7 @@ sudo apt update
 sudo apt install -y atom
 
 # Verify and exit installation
-echo -n "Verifying Atom Text Editor installation... "
+echo "Verifying Atom Text Editor installation... "
 echo
 ATOM_CHECK="$(atom -v 1>&1)"
 if [[ "$ATOM_CHECK" == *"Atom"* ]]; then
