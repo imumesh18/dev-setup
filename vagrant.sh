@@ -26,16 +26,16 @@ EOF
 # Changes the text color to default
 echo -e "\\033[0m"
 
-# # Downloads gitkraken .deb package for ubuntu
-# echo -e "\\033[1;92m Downloading.....\\033[1;92m\\033[0m"
-# curl -sSL https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb -o /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
+# Downloads gitkraken .deb package for ubuntu
+echo -e "\\033[1;92m Downloading.....\\033[1;92m\\033[0m"
+curl -sSL https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb -o /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
 
-# # Installs gitkraken
-# sudo dpkg -i /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
+# Installs gitkraken
+sudo dpkg -i /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
 
-# # Clean up
-# echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
-# rm -f /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
+# Clean up
+echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
+rm -f /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
 
 # Verify and exit installation
 echo "Verifying Vagrant installation... "
