@@ -34,18 +34,14 @@ echo -e "\\033[1;92m\\033[0m"
 # Remove tmux folder if it already exists
 rm -fr /tmp/tmux-${TMUX_VERSION}
 
-# Download the latest release from github
-cd "$HOME"
-
 # Checks if the tmux tarball already exists or not
 if ! [ -f tmux-${TMUX_VERSION}.tar.gz ]; then
     # TODO Replace wget with curl
-    wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz
+    # Download and extract tmux latest tarball from github
+    wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz && tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/
+    rm -fr tmux-${TMUX_VERSION}.tar.gz
 fi
-#curl -SL https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz | tar xzv
-
-# Extract the downloaded tmux tarball
-tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/
+#curl -sSL https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz | tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/
 
 # Change working diectory
 cd /tmp/tmux-${TMUX_VERSION}
@@ -58,7 +54,6 @@ sudo make install >/dev/null
 
 # Clean up
 echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
-cd "$HOME"
 rm -fr /tmp/tmux-${TMUX_VERSION}
 
 # Verify and exit installation
@@ -76,7 +71,7 @@ if [[ "$TMUX_CHECK" == *"tmux"* ]]; then
 else
    echo -e "\\033[0;31mFAILED"
    echo
-   echo "$0: Lol! Something went wrong, try to fix yourself else report an issues"
+   echo "$0: Lol! You broke my script dude :)XD, try to fix yourself else report an issues"
    echo -e "\\033[0m"
    exit 1
 fi

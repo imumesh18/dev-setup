@@ -25,14 +25,15 @@ EOF
 echo -e "\\033[1;92m\\033[0m"
 
 # Downloads gitkraken .deb package for ubuntu
-wget https://release.gitkraken.com/linux/gitkraken-amd64.deb 
+echo -e "\\033[1;92m Downloading.....\\033[1;92m\\033[0m"
+curl -sSL https://release.gitkraken.com/linux/gitkraken-amd64.deb -o /tmp/gitkraken-amd64.deb
 
 # Installs gitkraken
-sudo dpkg -i gitkraken-amd64.deb
+sudo dpkg -i /tmp/gitkraken-amd64.deb
 
 # Clean up
 echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
-rm -f gitkraken-amd64.deb
+rm -rf /tmp/gitkraken-amd64.deb
 
 # Verify and exit installation
 echo -n "Verifying Gitkraken installation... "
@@ -49,7 +50,7 @@ if [[ "$GITKRAKEN_CHECK" == *"Node started time"* ]]; then
 else
    echo -e "\\033[0;31mFAILED"
    echo
-   echo "$0: Lol! Something went wrong, try to fix yourself else report an issues"
+   echo "$0: Lol! You broke my script dude :)XD, try to fix yourself else report an issues"
    echo -e "\\033[0m"
    exit 1
 fi
