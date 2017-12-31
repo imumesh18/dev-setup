@@ -49,7 +49,7 @@ if [[ "$CODE_CHECK" == *"x64"* ]]; then
 else
    echo -e "\\033[0;31mFAILED"
    echo
-   echo "$0: Lol! Something went wrong, try to fix yourself else report an issues"
+   echo "$0: Lol! You broke my script dude :)XD, try to fix yourself else report an issues"
    echo -e "\\033[0m"
    exit 1
 fi

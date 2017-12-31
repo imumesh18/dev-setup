@@ -21,7 +21,7 @@ EOF
 echo -e "\\033[0m"
 
 # Imports Atom text editor gpg key 
-curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+curl -sSL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 
 # Adds the Atom text editor apt PPA 
 sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
@@ -45,7 +45,7 @@ if [[ "$ATOM_CHECK" == *"Atom"* ]]; then
 else
    echo -e "\\033[0;31mFAILED"
    echo
-   echo "$0: Lol! Something went wrong, try to fix yourself else report an issues"
+   echo "$0: Lol! You broke my script dude :)XD, try to fix yourself else report an issues"
    echo -e "\\033[0m"
    exit 1
 fi

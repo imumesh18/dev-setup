@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# set -Exeuo pipefail
 # Exit on error
 set -e
 
