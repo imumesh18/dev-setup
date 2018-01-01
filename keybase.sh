@@ -6,7 +6,7 @@ set -e
 sudo -v
 
 # Changes the text color to Teal.
-echo -e "\\033[1;38;5;23m"
+echo -e "\\033[1;38;5;202m"
 
 cat << "EOF"
  ___           _        _ _ _               _  __          _                    
