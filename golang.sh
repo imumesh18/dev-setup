@@ -27,7 +27,7 @@ sudo echo "export GOROOT=/usr/local/go" | sudo tee -a ~/.profile
 sudo echo "export GOPATH=$HOME" | sudo tee -a ~/.profile
 
 #to access go binary system wide
-sudo echo "export PATH=$PATH:/usr/local/go/bin" | sudo tee -a /.profile
+sudo echo "export PATH=$PATH:/usr/local/go/bin" | sudo tee -a ~/.profile
 
 #VERIFY INSTALLATION
 
