@@ -21,7 +21,7 @@ for f in $(find . -type f -name "*.sh" -not -name "setup.sh" | sort -u); do
 done
 
 if [ ${#ERRORS[@]} -eq 0 ]; then
-	echo "You are an Bash Wizard, No errors!"
+	echo "You are a Bash Wizard, No errors!"
 else
 	echo "These files failed shellcheck: ${ERRORS[*]}"
 	exit 1
