@@ -5,6 +5,28 @@ set -e
 
 sudo -v
 
+# Changes the text color to Sky-Blue.
+echo -e "\\033[1;38;5;39m"
+
+cat << "EOF"
+         ,_---~~~~~----._         
+  _,,_,*^____      _____``*g*\"*, 
+ / __/ /'     ^.  /      \ ^@q   f 
+[  @f | @))    |  | @))   l  0 _/  
+ \`/   \~____ / __ \_____/    \   
+  |           _l__l_           I   
+  }          [______]           I  
+  ]            | | |            |  
+  ]             ~ ~             |  
+  |                            |   
+   |                           |   
+
+
+EOF
+
+# Changes the text color to default
+echo -e "\\033[0m"
+
 #INSTALL GO LANGUAGE
 
 sudo apt install golang-go -y
