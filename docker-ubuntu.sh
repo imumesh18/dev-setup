@@ -21,4 +21,18 @@ apt-cache policy docker-ce
 sudo apt-get install -y docker-ce
 
 #To check the docker version
-docker version
+DOCKER_VERSION="$(docker -v)"
+if [[ "$DOCKER_VERSION" == "Docker version 17."* ]]; then
+   echo -e "\\033[0;32mOK"
+   echo
+   echo "Hoorrayy!!! Docker is successfully installed!"
+   echo
+   echo -e "\\033[0m"
+   exit 0
+else
+   echo -e "\\033[0;31mFAILED"
+   echo
+   echo "$0: Oops! There seems to be some problem. Please try to fix it or report an issues"
+   echo -e "\\033[0m"
+   exit 1
+fi
