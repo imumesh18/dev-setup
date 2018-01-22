@@ -55,6 +55,8 @@ echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile
 #to access go binary system wide
 echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile
 
+# Clean up
+echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
 rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 #VERIFY INSTALLATION
