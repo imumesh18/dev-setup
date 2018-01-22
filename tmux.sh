@@ -32,7 +32,9 @@ EOF
 echo -e "\\033[1;92m\\033[0m"
 
 # Remove tmux folder if it already exists
-rm -fr /tmp/tmux-${TMUX_VERSION}
+if [ -d "/tmp/tmux-${TMUX_VERSION}" ]; then
+  rm -fr /tmp/tmux-${TMUX_VERSION}
+fi
 
 # Checks if the tmux tarball already exists or not
 if ! [ -f tmux-${TMUX_VERSION}.tar.gz ]; then
