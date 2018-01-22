@@ -5,6 +5,9 @@ set -e
 
 sudo -v
 
+# Declare Golang Version
+GOLANG_VERSION=1.9.2
+
 # Changes the text color to Sky-Blue.
 echo -e "\\033[1;38;5;39m"
 
@@ -27,15 +30,16 @@ EOF
 # Changes the text color to default
 echo -e "\\033[0m"
 
-#INSTALL GO LANGUAGE
-
-sudo apt install golang-go -y
+# Remove tmux folder if it already exists
+if [ -d "/tmp/tmux-${TMUX_VERSION}" ]; then
+  sudo rm -rf /usr/local/go
+fi
 
 #Download the Go language binary archive file
-wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 #Extract the downloaded archive 
-sudo tar -xvf go1.9.2.linux-amd64.tar.gz
+sudo tar -xvf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 #install it to the /usr/local directory
 sudo mv go /usr/local
@@ -43,16 +47,17 @@ sudo mv go /usr/local
 #SETUP GO ENVIRONMENT
 
 #location where Go package is installed on your system
-sudo echo "export GOROOT=/usr/local/go" | sudo tee -a ~/.profile
+#sudo echo "export GOROOT=/usr/local/go" | sudo tee -a ~/.profile
 
 #location of your work directory
-sudo echo "export GOPATH=$HOME" | sudo tee -a ~/.profile
+echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile
 
 #to access go binary system wide
-sudo echo "export PATH=$PATH:/usr/local/go/bin" | sudo tee -a ~/.profile
+echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile
+
+rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 #VERIFY INSTALLATION
-
 echo -n "Verifying Golang installation... "
 echo
 GO_VERSION="$(go version)"
@@ -71,6 +76,3 @@ else
    echo -e "\\033[0m"
    exit 1
 fi
-
-
-
