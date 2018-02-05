@@ -46,9 +46,6 @@ sudo mv go /usr/local
 
 #SETUP GO ENVIRONMENT
 
-#location where Go package is installed on your system
-#sudo echo "export GOROOT=/usr/local/go" | sudo tee -a ~/.profile
-
 #location of your work directory
 echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile
 
