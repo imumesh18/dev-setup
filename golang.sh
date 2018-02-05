@@ -12,17 +12,17 @@ GOLANG_VERSION=1.9.2
 echo -e "\\033[1;38;5;39m"
 
 cat << "EOF"
-         ,_---~~~~~----._         
-  _,,_,*^____      _____``*g*\"*, 
- / __/ /'     ^.  /      \ ^@q   f 
-[  @f | @))    |  | @))   l  0 _/  
- \`/   \~____ / __ \_____/    \   
-  |           _l__l_           I   
-  }          [______]           I  
-  ]            | | |            |  
-  ]             ~ ~             |  
-  |                            |   
-   |                           |   
+         ,_---~~~~~----._
+  _,,_,*^____      _____``*g*\"*,
+ / __/ /'     ^.  /      \ ^@q   f
+[  @f | @))    |  | @))   l  0 _/
+ \`/   \~____ / __ \_____/    \
+  |           _l__l_           I
+  }          [______]           I
+  ]            | | |            |
+  ]             ~ ~             |
+  |                            |
+   |                           |
 
 
 EOF
@@ -30,15 +30,15 @@ EOF
 # Changes the text color to default
 echo -e "\\033[0m"
 
-# Remove tmux folder if it already exists
-if [ -d "/tmp/tmux-${TMUX_VERSION}" ]; then
+# Remove go folder if it already exists
+if [ -d "/usr/local/go" ]; then
   sudo rm -rf /usr/local/go
 fi
 
 #Download the Go language binary archive file
 wget https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz
 
-#Extract the downloaded archive 
+#Extract the downloaded archive
 sudo tar -xvf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 #install it to the /usr/local directory
