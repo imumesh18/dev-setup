@@ -26,11 +26,11 @@ EOF
 # Changes the text color to default
 echo -e "\\033[0m"
 
-# Downloads gitkraken .deb package for ubuntu
+# Downloads Vagrant .deb package for ubuntu
 echo -e "\\033[1;92m Downloading.....\\033[1;92m\\033[0m"
 curl -sSL https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb -o /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
 
-# Installs gitkraken
+# Installs Vagrant
 sudo dpkg -i /tmp/vagrant_${VAGRANT_VERSION}_x86_64.deb
 
 # Clean up

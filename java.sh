@@ -5,12 +5,6 @@ set -e
 
 sudo -v
 
-# # Purge OpenJDK if the option was provided
-# 
-# echo "Purging OpenJDK... "
-# apt-get purge -q openjdk-\*
-# 
-
 # Changes the text color to Light-green.
 echo -e "\\033[1;91m"
 

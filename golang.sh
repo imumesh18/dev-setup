@@ -35,25 +35,28 @@ if [ -d "/usr/local/go" ]; then
   sudo rm -rf /usr/local/go
 fi
 
-#Download the Go language binary archive file
+# Download the Go language binary archive file
 wget https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz
 
-#Extract the downloaded archive
+# Extract the downloaded archive
 sudo tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
-#SETUP GO ENVIRONMENT
+# SETUP GO ENVIRONMENT
 
-#location of your work directory
+# Location of your work directory
 echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile
 
-#to access go binary system wide
+# To access go binary system wide
 echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile
+
+# Refresh Profile
+source ~/.profile
 
 # Clean up
 echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
 rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
-#VERIFY INSTALLATION
+# VERIFY INSTALLATION
 echo -n "Verifying Golang installation... "
 echo
 GO_VERSION="$(go version)"

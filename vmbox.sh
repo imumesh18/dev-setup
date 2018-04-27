@@ -10,6 +10,7 @@ sudo -v
 
 # Declare Virtual Box version
 VBOX_VERSION=5.2
+VBOX_DIST="xenial"
 
 # Changes the text color to NAVY-Blue.
 echo -e "\\033[1;38;5;17m"
@@ -25,6 +26,9 @@ EOF
 
 # Changes the text color to default
 echo -e "\\033[0m"
+
+# Adds the Virtual Box apt PPA
+sudo sh -c 'echo "deb https://download.virtualbox.org/virtualbox/debian ${VBOX_DIST} contrib" > /etc/apt/sources.list.d/vscode.list'
 
 # Imports  Virtual Box gpg key
 curl -sSL https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
