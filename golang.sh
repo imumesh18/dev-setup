@@ -6,7 +6,7 @@ set -e
 sudo -v
 
 # Declare Golang Version
-GOLANG_VERSION=1.9.2
+GOLANG_VERSION=1.10.1
 
 # Changes the text color to Sky-Blue.
 echo -e "\\033[1;38;5;39m"
@@ -39,7 +39,7 @@ fi
 wget https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 #Extract the downloaded archive
-sudo tar -xvf go${GOLANG_VERSION}.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 #install it to the /usr/local directory
 sudo mv go /usr/local
@@ -60,7 +60,7 @@ rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz
 echo -n "Verifying Golang installation... "
 echo
 GO_VERSION="$(go version)"
-if [[ "$GO_VERSION" ==  "go version go1.9.2 linux/amd64" ]]; then
+if [[ "$GO_VERSION" ==  "go version go1.10.1 linux/amd64" ]]; then
    echo -e "\\033[0;32mOK"
    echo
    echo "Golang is successfully installed!"
