@@ -41,9 +41,6 @@ wget https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.g
 #Extract the downloaded archive
 sudo tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
-#install it to the /usr/local directory
-sudo mv go /usr/local
-
 #SETUP GO ENVIRONMENT
 
 #location of your work directory

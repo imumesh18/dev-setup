@@ -33,4 +33,22 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 sudo apt install -y sublime-text
 
-# TODO Add Verification of installation
+# Verify and exit installation
+echo "Verifying Sublime Text Editor installation... "
+echo
+SUBLIME_CHECK="$(subl -v 1>&1)"
+if [[ "$SUBLIME_CHECK" == *"Sublime Text Build"* ]]; then
+   echo -e "\\033[0;32mOK"
+   echo
+   echo "Sublime Text Editor is successfully installed!"
+   echo
+   subl -v
+   echo -e "\\033[1mHACK THE WORLD!\\033[0m"
+   exit 0
+else
+   echo -e "\\033[0;31mFAILED"
+   echo
+   echo "$0: Lol! You broke my script dude :)XD, try to fix yourself else report an issues"
+   echo -e "\\033[0m"
+   exit 1
+fi
