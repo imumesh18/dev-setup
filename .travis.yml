@@ -1,3 +1,6 @@
+sudo: false
+dist: trusty
+
 language: bash
 
 services:
@@ -5,14 +8,5 @@ services:
 
 script:
  - make test
- - make all
 
-matrix:
-  include:
-    - os: linux
-      dist: xenial
-      sudo: false
-    - os: linux
-      dist: trusty
-      sudo: required
 fast_finish: true
