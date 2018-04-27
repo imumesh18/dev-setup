@@ -1,5 +1,5 @@
 .PHONY: all
-all: atom bazel docker gitkraken golang java keybase sublime-text tmux vagrant vbox vscode ## Installs all the programs inside this repository.
+all: atom bazel docker gitkraken golang java keybase sublime-text tmux vagrant vbox vscode ## Installs all the programs inside this repository in single go.
 
 .PHONY: atom
 atom: ## Installs the atom text editor.
@@ -66,4 +66,14 @@ shellcheck: ## Runs the shellcheck tests on the scripts.
 		--name df-shellcheck \
 		-v $(CURDIR):/usr/src:ro \
 		--workdir /usr/src \
-		r.j3ss.co/shellcheck ./test.sh
+		r.j3ss.co/shellcheck ./test.sh   
+
+.PHONY: help
+help: ## Shows help.
+	@echo
+	@echo 'Usage:'
+	@echo '    make <target>'
+	@echo
+	@echo 'Targets:'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@echo
