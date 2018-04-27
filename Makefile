@@ -61,7 +61,7 @@ ifeq ($(INTERACTIVE), 1)
 endif
 
 .PHONY: shellcheck
-shellcheck: ## Runs the shellcheck tests on the scripts.
+shellcheck: # Runs the shellcheck tests on the scripts.
 	docker run --rm -it \
 		--name df-shellcheck \
 		-v $(CURDIR):/usr/src:ro \
