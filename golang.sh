@@ -50,6 +50,7 @@ echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile
 echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile
 
 # Refresh Profile
+# shellcheck source=/dev/null
 source ~/.profile
 
 # Clean up
