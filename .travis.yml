@@ -8,5 +8,6 @@ services:
 
 script:
  - make test
+ - make help
 
 fast_finish: true
