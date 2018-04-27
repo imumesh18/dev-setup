@@ -1,4 +1,5 @@
 sudo: required
+dist: xenial
 
 language: bash
 
@@ -6,7 +7,7 @@ services:
   - docker
 
 script:
- - docker run --rm -it --name df-shellcheck -v $(pwd):/usr/src:ro --workdir /usr/src r.j3ss.co/shellcheck ./test.sh
+ - make test
+ - make all
 
-matrix:
 fast_finish: true
