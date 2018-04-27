@@ -22,7 +22,7 @@ golang: ## Installs the golang.
 	./golang.sh
 
 .PHONY: java
-golang: ## Installs the java.
+java: ## Installs the java.
 	./java.sh
 
 .PHONY: keybase
@@ -55,7 +55,7 @@ test: shellcheck ## Runs all the tests on all the installation scripts in the re
 .PHONY: shellcheck
 shellcheck: ## Runs the shellcheck tests on the scripts.
 	docker run --rm -it \
-	--name df-shellcheck \ 
-	-v $(pwd):/usr/src:ro \
-	--workdir /usr/src \
-	r.j3ss.co/shellcheck ./test.sh
+		--name df-shellcheck \
+		-v $(CURDIR):/usr/src:ro \
+		--workdir /usr/src \
+		r.j3ss.co/shellcheck ./test.sh
