@@ -27,7 +27,7 @@ EOF
 echo -e "\\033[0m"
 
 # Adds the Virtual Box apt PPA
-sudo sh -c 'echo "deb https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/vscode.list'
 
 # Imports  Virtual Box gpg key
 curl -sSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-key add -
