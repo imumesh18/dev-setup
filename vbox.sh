@@ -30,7 +30,7 @@ echo -e "\\033[0m"
 sudo sh -c 'echo "deb https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/vscode.list'
 
 # Imports  Virtual Box gpg key
-curl -sSL https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
+curl -sSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-key add -
 
 # Update packages and Installs Virtual Box Code latest version 
 sudo apt-get update
