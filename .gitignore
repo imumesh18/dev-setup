@@ -1,0 +1,4 @@
+# Program Installation file
+*.bin
+*.deb
+*.tar.gz
