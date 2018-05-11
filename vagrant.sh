@@ -9,7 +9,7 @@ set -o pipefail
 sudo -v
 
 # Declare Vagrant version
-VAGRANT_VERSION=2.0.1
+VAGRANT_VERSION=2.1.1
 
 # Changes the text color to Light-Blue.
 echo -e "\\033[1;38;5;27m"
