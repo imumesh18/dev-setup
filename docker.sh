@@ -30,7 +30,6 @@ if [[ "$KEY_FINGERPRINT" == *"9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
    echo "Docker Key Fingerprint Verified!"
    echo
    echo -e "\\033[0m"
-   exit 0
 else
    echo -e "\\033[0;31mFAILED"
    echo
