@@ -39,11 +39,9 @@ rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz
 # VERIFY INSTALLATION
 GO_VERSION="$(go version)"
 if [[ "$GO_VERSION" ==  "go version go${GOLANG_VERSION} linux/amd64" ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi

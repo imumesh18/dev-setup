@@ -22,5 +22,4 @@ sudo apt-get install -y \
     libssl-dev \
     software-properties-common > /dev/null
   
-echo -e "\\033[0;32m[OK]"
-echo -e "\\033[0m"
+echo -e "\\033[0;32m[OK]\\033[0m"

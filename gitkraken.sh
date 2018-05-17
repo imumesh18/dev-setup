@@ -22,11 +22,9 @@ rm -rf /tmp/gitkraken-amd64.deb
 # Verify and exit installation
 GITKRAKEN_CHECK="$(gitkraken -v 1>&1)"
 if [[ "$GITKRAKEN_CHECK" == *"Node started time"* ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi

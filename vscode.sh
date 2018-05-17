@@ -24,11 +24,9 @@ sudo apt-get install -y code > /dev/null
 # Verify and exit installation
 CODE_CHECK="$(code -v 3>&1)"
 if [[ "$CODE_CHECK" == *"x64"* ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi

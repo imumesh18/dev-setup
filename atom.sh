@@ -20,11 +20,9 @@ sudo apt install -y atom > /dev/null
 # Verify and exit installation
 ATOM_CHECK="$(atom -v 1>&1)"
 if [[ "$ATOM_CHECK" == *"Atom"* ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi

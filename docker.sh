@@ -11,7 +11,7 @@ echo -n "Installing Docker ..."
 sudo apt-get update > /dev/null
 
 # Install Dependency
-sudo apt-get install \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -35,16 +35,14 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update -y > /dev/null
 
 #Install Docker
-sudo apt-get install -y docker-ce /dev/null
+sudo apt-get install -y docker-ce > /dev/null
 
 # Verify and exit installation
 DOCKER_VERSION="$(docker -v)"
 if [[ "$DOCKER_VERSION" == "Docker version"* ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi

@@ -26,11 +26,9 @@ sudo apt-get install -y virtualbox-${VBOX_VERSION} > /dev/null
 # Verify and exit installation
 VBOX_CHECK="$(vboxmanage -v 1>&1)"
 if [[ "$VBOX_CHECK" == *"${VBOX_VERSION}"* ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi

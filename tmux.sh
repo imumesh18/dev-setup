@@ -26,7 +26,7 @@ fi
 if ! [ -f tmux-${TMUX_VERSION}.tar.gz ]; then
     # TODO Replace wget with curl
     # Download and extract tmux latest tarball from github
-    wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz && tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/ > /dev/null
+    wget -q https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz && tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/ > /dev/null
     rm -fr tmux-${TMUX_VERSION}.tar.gz
 fi
 
@@ -45,11 +45,9 @@ rm -fr /tmp/tmux-${TMUX_VERSION}
 # Verify and exit installation
 TMUX_CHECK="$(tmux -V 1>&1)"
 if [[ "$TMUX_CHECK" == *"tmux"* ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi

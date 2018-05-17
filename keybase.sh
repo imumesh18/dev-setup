@@ -20,11 +20,9 @@ rm -rf /tmp/keybase_amd64.deb
 # Verify and exit installation
 KEYBASE_CHECK="$(keybase version 1>&1)"
 if [[ "$KEYBASE_CHECK" == *""* ]]; then
-   echo -e "\\033[0;32m[OK]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;32m[OK]\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31m[FAILED]"
-   echo -e "\\033[0m"
+   echo -e "\\033[0;31m[FAILED]\\033[0m"
    exit 1
 fi
