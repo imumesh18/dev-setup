@@ -5,30 +5,10 @@ set -e
 
 sudo -v
 
+echo -n "Installing Golang ..."
+
 # Declare Golang Version
-GOLANG_VERSION=1.10.1
-
-# Changes the text color to Sky-Blue.
-echo -e "\\033[1;38;5;39m"
-
-cat << "EOF"
-         ,_---~~~~~----._
-  _,,_,*^____      _____``*g*\"*,
- / __/ /'     ^.  /      \ ^@q   f
-[  @f | @))    |  | @))   l  0 _/
- \`/   \~____ / __ \_____/    \
-  |           _l__l_           I
-  }          [______]           I
-  ]            | | |            |
-  ]             ~ ~             |
-  |                            |
-   |                           |
-
-
-EOF
-
-# Changes the text color to default
-echo -e "\\033[0m"
+GOLANG_VERSION=1.10.2
 
 # Remove go folder if it already exists
 if [ -d "/usr/local/go" ]; then
@@ -54,25 +34,16 @@ echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profil
 source ~/.profile
 
 # Clean up
-echo -e "\\033[1;93m**Cleaning Up the mess**\\033[1;93m\\033[0m"
 rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 # VERIFY INSTALLATION
-echo -n "Verifying Golang installation... "
-echo
 GO_VERSION="$(go version)"
-if [[ "$GO_VERSION" ==  "go version go1.10.1 linux/amd64" ]]; then
-   echo -e "\\033[0;32mOK"
-   echo
-   echo "Golang is successfully installed!"
-   echo
-   go version
+if [[ "$GO_VERSION" ==  "go version go${GOLANG_VERSION} linux/amd64" ]]; then
+   echo -e "\\033[0;32m[OK]"
    echo -e "\\033[0m"
    exit 0
 else
-   echo -e "\\033[0;31mFAILED"
-   echo
-   echo "$0: Lol! Something went wrong, try to fix yourself else report an issues"
+   echo -e "\\033[0;31m[FAILED]"
    echo -e "\\033[0m"
    exit 1
 fi

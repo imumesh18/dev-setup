@@ -3,62 +3,58 @@ all: atom bazel docker gitkraken golang java keybase sublime-text tmux vagrant v
 
 .PHONY: atom
 atom: ## Installs the atom text editor.
-	./atom.sh
+	@./atom.sh
 
 .PHONY: bazel
 bazel: ## Installs the bazel build.
-	./bazel.sh
+	@./bazel.sh
 
 .PHONY: docker
 docker: ## Installs the docker-ce.
-	./docker.sh
+	@./docker.sh
+
+.PHONY: essential
+essential: ## Installs the basic packages for dev-setup.
+	@./essential.sh
 
 .PHONY: gitkraken
 gitkraken: ## Installs the gitkraken.
-	./gitkraken.sh
+	@./gitkraken.sh
 
 .PHONY: golang
 golang: ## Installs the golang.
-	./golang.sh
+	@./golang.sh
 
 .PHONY: java
 java: ## Installs the java.
-	./java.sh
+	@./java.sh
 
 .PHONY: keybase
 keybase: ## Installs the keybase.
-	./keybase.sh
+	@./keybase.sh
 
 .PHONY: sublime-text
 sublime-text: ## Installs the sublime text.
-	./sublime-text.sh
+	@./sublime-text.sh
 
 .PHONY: tmux
 tmux: ## Installs the tmux.
-	./tmux.sh
+	@./tmux.sh
 
 .PHONY: vagrant
 vagrant: ## Installs the vagrant.
-	./vagrant.sh
+	@./vagrant.sh
 
 .PHONY: vbox
 vbox: ## Installs the virtual box.
-	./vbox.sh
+	@./vbox.sh
 
 .PHONY: vscode
 vscode: ## Installs the visual studio text editor.
-	./vscode.sh
+	@./vscode.sh
 
 PHONY: test
 test: shellcheck ## Runs all the tests on all the installation scripts in the repository.
-
-# if this session isn't interactive, then we don't want to allocate a
-# TTY, which would fail, but if it is interactive, we do want to attach
-# so that the user can send e.g. ^C through.
-INTERACTIVE := $(shell [ -t 0 ] && echo 1 || echo 0)
-ifeq ($(INTERACTIVE), 1)
-	DOCKER_FLAGS += -t
-endif
 
 .PHONY: shellcheck
 shellcheck: # Runs the shellcheck tests on the scripts.
