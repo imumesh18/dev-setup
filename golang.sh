@@ -16,7 +16,7 @@ if [ -d "/usr/local/go" ]; then
 fi
 
 # Download the Go language binary archive file
-wget https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz
+curl -sSL https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz -o go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 # Extract the downloaded archive
 sudo tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz
@@ -24,14 +24,14 @@ sudo tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz
 # SETUP GO ENVIRONMENT
 
 # Location of your work directory
-echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile
+echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile > /dev/null
 
 # To access go binary system wide
-echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile
+echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile > /dev/null
 
 # Refresh Profile
 # shellcheck source=/dev/null
-source ~/.profile
+source ~/.profile 
 
 # Clean up
 rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz

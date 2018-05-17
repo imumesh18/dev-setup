@@ -23,7 +23,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - > /
 # Verify the Docker GPG key
 KEY_FINGERPRINT="$(sudo apt-key fingerprint 0EBFCD88)"
 
-if [[ "$KEY_FINGERPRINT" == *"9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88"* ]]; then
+if [[ "$KEY_FINGERPRINT" == *"9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88"* ]]; then :
 else
    exit 1
 fi

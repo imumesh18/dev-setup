@@ -26,7 +26,7 @@ fi
 if ! [ -f tmux-${TMUX_VERSION}.tar.gz ]; then
     # TODO Replace wget with curl
     # Download and extract tmux latest tarball from github
-    wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz && tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/
+    wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz && tar xvzf tmux-${TMUX_VERSION}.tar.gz -C /tmp/ > /dev/null
     rm -fr tmux-${TMUX_VERSION}.tar.gz
 fi
 

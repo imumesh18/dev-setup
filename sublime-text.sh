@@ -14,7 +14,7 @@ echo -n "Installing Sublime Text Editor ..."
 curl -sSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - /dev/null 2>&1
 
 # Adds the Sublime text apt PPA 
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list > /dev/null
 
 # Update packages and Installs Sublime text latest version
 sudo apt update > /dev/null
