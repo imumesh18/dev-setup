@@ -22,22 +22,22 @@ sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/tista/adapta/ubuntu 
 sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/tista/adapta/ubuntu ${Codename} main' > /etc/apt/sources.list.d/tista-${Distribution_ID}-adapta-${Codename}.list.save"
 
 # Add gpg key
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EAC0D406E5D79A82ADEEDFDFB76E53652D87398A
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EAC0D406E5D79A82ADEEDFDFB76E53652D87398A >/dev/null 2>&1
 
 # Installing adapta-theme
-sudo apt-get update
-sudo apt-get install adapta-gtk-theme
+sudo apt-get update >/dev/null
+sudo apt-get install adapta-gtk-theme >/dev/null
 
 # Add pop-theme-icon package
 sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/system76/pop/ubuntu ${Codename} main' > /etc/apt/sources.list.d/system76-$(lsb_release -is)-pop-${Codename}.list"
 sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/system76/pop/ubuntu ${Codename} main' > /etc/apt/sources.list.d/system76-$(lsb_release -is)-pop-${Codename}.list.save"
 
 # Add gpg key
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E6AC16572ED1AD6F96C7EBE01E5F8BBC5BEB10AE
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E6AC16572ED1AD6F96C7EBE01E5F8BBC5BEB10AE >/dev/null 2>&1
 
 # Installing Pop-icon-theme
-sudo apt update
-sudo apt install pop-icon-theme
+sudo apt update >/dev/null
+sudo apt install pop-icon-theme >/dev/null
 
 echo -e "\\033[0;32m[OK]\\033[0m"
 
