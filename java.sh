@@ -7,8 +7,15 @@ sudo -v
 
 echo -n "Installing Java ..."
 
+Distribution_ID="$(lsb_release -is)"
+Codename="$(lsb_release -cs)"
+
+if [ "$(Distribution_ID)" == "Debian" ]; then
+    Codename="xenial"
+fi
+
 # Add webupd8team java package
-sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/webupd8team/java/ubuntu $(lsb_release -cs) main' > /etc/apt/sources.list.d/webupd8team-$(lsb_release -is)-java-$(lsb_release -cs).list"
+sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/webupd8team/java/ubuntu ${Codename} main' > /etc/apt/sources.list.d/webupd8team-${Distribution_ID}-java-${Codename}.list"
 
 # Add gpg key
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7B2C3B0889BF5709A105D03AC2518248EEA14886 > /dev/null 2>&1
