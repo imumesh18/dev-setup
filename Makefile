@@ -10,8 +10,6 @@ atom: ## Installs the atom text editor.
 base: ## Installs the basic packages for dev-setup.
 	@./base.sh
 
--include base
-
 .PHONY: bazel
 bazel: ## Installs the bazel build.
 	@./bazel.sh
@@ -64,8 +62,8 @@ PHONY: test
 test: shellcheck## Runs all the tests on all the installation scripts in the repository.
 
 PHONY: format
-format:
-	shfmt -i 2 -ci -l *.sh
+format: ## Formats all the script according to google guidelines.
+	@shfmt -i 2 -ci -l *.sh
 
 .PHONY: shellcheck
 shellcheck: # Runs the shellcheck tests on the scripts.
