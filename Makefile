@@ -1,21 +1,28 @@
 .PHONY: all
-all: atom bazel docker gitkraken golang java keybase sublime-text tmux ui vagrant vbox vscode ## Installs all the programs inside this repository in single go.
+all: atom bazel desktop docker gitkraken golang java keybase sublime-text tmux vagrant vbox vscode ## Installs all the programs inside this repository in single go.
 
 .PHONY: atom
 atom: ## Installs the atom text editor.
 	@./atom.sh
 
+
+.PHONY: base
+base: ## Installs the basic packages for dev-setup.
+	@./base.sh
+
+-include base
+
 .PHONY: bazel
 bazel: ## Installs the bazel build.
 	@./bazel.sh
 
+.PHONY: desktop
+desktop: ## Installs the visual studio text editor.
+	@./desktop.sh
+
 .PHONY: docker
 docker: ## Installs the docker-ce.
 	@./docker.sh
-
-.PHONY: essential
-essential: ## Installs the basic packages for dev-setup.
-	@./essential.sh
 
 .PHONY: gitkraken
 gitkraken: ## Installs the gitkraken.
@@ -40,10 +47,6 @@ sublime-text: ## Installs the sublime text.
 .PHONY: tmux
 tmux: ## Installs the tmux.
 	@./tmux.sh
-
-.PHONY: ui
-ui: ## Installs the visual studio text editor.
-	@./ui.sh
 
 .PHONY: vagrant
 vagrant: ## Installs the vagrant.
