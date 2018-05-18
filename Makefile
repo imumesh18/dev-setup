@@ -54,7 +54,11 @@ vscode: ## Installs the visual studio text editor.
 	@./vscode.sh
 
 PHONY: test
-test: shellcheck ## Runs all the tests on all the installation scripts in the repository.
+test: shellcheck## Runs all the tests on all the installation scripts in the repository.
+
+PHONY: format
+format:
+	shfmt -i 2 -ci -l *.sh
 
 .PHONY: shellcheck
 shellcheck: # Runs the shellcheck tests on the scripts.
