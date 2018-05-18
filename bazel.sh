@@ -14,8 +14,11 @@ else
 
   if [ "$(Distribution_ID)" == "Debian" ]; then
     Codename="xenial"
+    Distribution_ID="debian"
+  else
+    Distribution_ID="ubuntu"
   fi
-  
+
   # Add webupd8team java package
   sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/webupd8team/java/ubuntu ${Codename} main' > /etc/apt/sources.list.d/webupd8team-${Distribution_ID}-java-${Codename}.list"
   sudo sh -c "echo 'deb [arch=amd64] http://ppa.launchpad.net/webupd8team/java/ubuntu ${Codename} main' > /etc/apt/sources.list.d/webupd8team-${Distribution_ID}-java-${Codename}.list.save"
