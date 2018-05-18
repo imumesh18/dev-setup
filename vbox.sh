@@ -19,16 +19,16 @@ sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/de
 # Imports  Virtual Box gpg key
 curl -sSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-key add - /dev/null 2>&1
 
-# Update packages and Installs Virtual Box Code latest version 
-sudo apt-get update > /dev/null
-sudo apt-get install -y virtualbox-${VBOX_VERSION} > /dev/null
+# Update packages and Installs Virtual Box Code latest version
+sudo apt-get update >/dev/null
+sudo apt-get install -y virtualbox-${VBOX_VERSION} >/dev/null
 
 # Verify and exit installation
 VBOX_CHECK="$(vboxmanage -v 1>&1)"
 if [[ "$VBOX_CHECK" == *"${VBOX_VERSION}"* ]]; then
-   echo -e "\\033[0;32m[OK]\\033[0m"
-   exit 0
+  echo -e "\\033[0;32m[OK]\\033[0m"
+  exit 0
 else
-   echo -e "\\033[0;31m[FAILED]\\033[0m"
-   exit 1
+  echo -e "\\033[0;31m[FAILED]\\033[0m"
+  exit 1
 fi

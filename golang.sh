@@ -24,24 +24,24 @@ sudo tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz
 # SETUP GO ENVIRONMENT
 
 # Location of your work directory
-echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile > /dev/null
+echo "export GOPATH=$HOME/go" | sudo tee -a ~/.profile >/dev/null
 
 # To access go binary system wide
-echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile > /dev/null
+echo "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" | sudo tee -a ~/.profile >/dev/null
 
 # Refresh Profile
 # shellcheck source=/dev/null
-source ~/.profile 
+source ~/.profile
 
 # Clean up
 rm -rf go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 # VERIFY INSTALLATION
 GO_VERSION="$(go version)"
-if [[ "$GO_VERSION" ==  "go version go${GOLANG_VERSION} linux/amd64" ]]; then
-   echo -e "\\033[0;32m[OK]\\033[0m"
-   exit 0
+if [[ "$GO_VERSION" == "go version go${GOLANG_VERSION} linux/amd64" ]]; then
+  echo -e "\\033[0;32m[OK]\\033[0m"
+  exit 0
 else
-   echo -e "\\033[0;31m[FAILED]\\033[0m"
-   exit 1
+  echo -e "\\033[0;31m[FAILED]\\033[0m"
+  exit 1
 fi
