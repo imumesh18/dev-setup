@@ -68,10 +68,10 @@ format: ## Formats all the script according to google guidelines.
 .PHONY: shellcheck
 shellcheck: # Runs the shellcheck tests on the scripts.
 	docker run --rm -it \
-		--name df-shellcheck \
+		--name shelltest \
 		-v $(CURDIR):/usr/src:ro \
 		--workdir /usr/src \
-		r.j3ss.co/shellcheck ./test.sh   
+		dungeonmaster18/shelltest ./test.sh   
 
 .PHONY: help
 help: ## Shows help.
