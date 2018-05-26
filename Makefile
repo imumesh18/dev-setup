@@ -59,14 +59,14 @@ vscode: ## Installs the visual studio text editor.
 	@./vscode.sh
 
 PHONY: test
-test: shellcheck## Runs all the tests on all the installation scripts in the repository.
+test: shelltest## Runs all the tests on all the installation scripts in the repository.
 
 PHONY: format
 format: ## Formats all the script according to google guidelines.
-	@shfmt -i 2 -ci -l *.sh
+	@shfmt -i 2 -ci -l -w *.sh
 
-.PHONY: shellcheck
-shellcheck: # Runs the shellcheck tests on the scripts.
+.PHONY: shelltest
+shellcheck: # Runs the shellcheck and shfmt tests on the scripts.
 	docker run --rm -it \
 		--name shelltest \
 		-v $(CURDIR):/usr/src:ro \
