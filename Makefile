@@ -63,7 +63,11 @@ test: shelltest## Runs all the tests on all the installation scripts in the repo
 
 PHONY: format
 format: ## Formats all the script according to google guidelines.
-	@shfmt -i 2 -ci -l -w *.sh
+	docker run --rm -it \
+		--name shelltest \
+		-v $(CURDIR):/usr/src:ro \
+		--workdir /usr/src \
+		dungeonmaster18/shelltest shfmt -i 2 -ci -l -w *.sh
 
 .PHONY: shelltest
 shellcheck: # Runs the shellcheck and shfmt tests on the scripts.
