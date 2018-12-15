@@ -1,6 +1,6 @@
 # Dev Setup
 
-[![Build Status](https://travis-ci.org/dungeonmaster18/dev-setup.svg?branch=master)](https://travis-ci.org/dungeonmaster18/dev-setup)
+[![Build Status](https://travis-ci.org/imumesh18/dev-setup.svg?branch=master)](https://travis-ci.org/dungeonmaster18/dev-setup)
 
 ### Introduction
 
